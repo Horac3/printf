@@ -72,4 +72,3 @@ int binary_printf(const char *format, ...)
 
 	return (count);
 }
-
