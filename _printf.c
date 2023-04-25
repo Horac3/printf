@@ -7,7 +7,8 @@
  * _printf - produces output according to a format.
  * @format: A string containing zero or more directives
  *
- * Return: The number of characters printed (excluding the null byte used to end output to strings)
+ * Return: The number of characters printed
+ * (excluding the null byte used to end output to strings)
  */
 int _printf(const char *format, ...)
 {
@@ -28,7 +29,8 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 				case 's':
-					count += write(1, va_arg(args, char *), 0);
+					count += write
+						(1, va_arg(args, char *), 0);
 					break;
 				case '%':
 					_putchar('%');
