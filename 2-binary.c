@@ -26,7 +26,7 @@ int print_binary(unsigned int n)
 }
 
 /**
- * _printf - produces output according to a format.
+ * binary_printf - produces output according to a format.
  * @format: A string containing zero or more directives
  *
  * Return: The number of characters printed
@@ -34,15 +34,16 @@ int print_binary(unsigned int n)
  */
 
 
-int _printf(const char *format, ...)
+int binary_printf(const char *format, ...)
 {
+	const char *p;
 	int count = 0;
 
 	va_list args;
-
+	p = format;
 	va_start(args, format);
 
-	for (const char *p = format; *p != '\0'; p++)
+	for (; *p != '\0'; p++)
 	{
 		if (*p == '%')
 		{
