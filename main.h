@@ -6,10 +6,13 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+<<<<<<< HEAD
 
 int print_rev(char *str);
 int _strlen(char *s);
 int specifier_printf(const char *format, ...);
+=======
+>>>>>>> parent of 21dee1a... Task 2 and 3
 int print_unsigned(unsigned int n);
 int print_octal(unsigned int n);
 int print_hex(unsigned int n, int uppercase);
