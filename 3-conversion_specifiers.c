@@ -57,14 +57,13 @@ int print_hex(unsigned int n, int uppercase)
 }
 
 /**
- * specifier_printf - prints a formatted string to the standard output stream
+ * _printf - prints a formatted string to the standard output stream
  * @format: the format string to print
  * @...: a variable number of arguments to print
  *
  * Return: the number of characters printed
  */
-
-int specifier_printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;

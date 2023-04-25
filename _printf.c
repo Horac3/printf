@@ -1,6 +1,7 @@
 #include <stdarg.h>
-#include <stdio.h>
+#include <unistd.h>
 #include "main.h"
+
 
 /**
  * _printf - produces output according to a format.
@@ -9,53 +10,44 @@
  * Return: The number of characters printed
  * (excluding the null byte used to end output to strings)
  */
-
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0;
-	const char *s;
+	int i, count = 0;
 
 	va_start(args, format);
 
-	while (*format)
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			format++;
-			if (*format == 'c')
+			i++;
+			switch (format[i])
 			{
-				int c = va_arg(args, int);
-				putchar(c);
-				count++;
-			}
-			else if
-				(*format == 's')
-				{
-					s = va_arg(args, const char*);
-					while (*s)
-					{
-						putchar(*s++);
-						count++;
-					}
-				}
-			else if
-				(*format == '%')
-				{
-					putchar('%');
+				case 'c':
+					_putchar(va_arg(args, int));
 					count++;
-				}
-			else
-			{
-
+					break;
+				case 's':
+					count += write
+						(1, va_arg(args, char *), 0);
+					break;
+				case '%':
+					_putchar('%');
+					count++;
+					break;
+				default:
+					_putchar('%');
+					_putchar(format[i]);
+					count += 2;
+					break;
 			}
 		}
 		else
 		{
-			putchar(*format);
+			_putchar(format[i]);
 			count++;
 		}
-		format++;
 	}
 	va_end(args);
 	return (count);

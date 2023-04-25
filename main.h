@@ -6,6 +6,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+
 int print_rev(char *str);
 int _strlen(char *s);
 int specifier_printf(const char *format, ...);
