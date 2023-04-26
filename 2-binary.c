@@ -37,10 +37,13 @@ int print_binary(unsigned int n)
 int binary_printf(const char *format, ...)
 {
 	const char *p;
+
 	int count = 0;
 
 	va_list args;
+
 	p = format;
+
 	va_start(args, format);
 
 	for (; *p != '\0'; p++)

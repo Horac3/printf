@@ -4,49 +4,62 @@
 
 
 /**
- * _printf - produces output according to a format.
- * @format: A string containing zero or more directives
- *
- * Return: The number of characters printed (excluding the null byte used to end output to strings)
+ * _printf - produces output according to a format
+ * @format: the format string
+ * Return: the number of characters printed
  */
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i, count = 0;
+	int count = 0;
 
 	va_start(args, format);
 
-	for (i = 0; format[i] != '\0'; i++)
+	while (*format)
 	{
-		if (format[i] == '%')
+		if (*format == '%')
 		{
-			i++;
-			switch (format[i])
+			format++;
+			switch (*format)
 			{
 				case 'c':
-					_putchar(va_arg(args, int));
-					count++;
+					count += _putchar(va_arg(args, int));
 					break;
 				case 's':
-					count += write(1, va_arg(args, char *), 0);
+					count += _puts(va_arg(args, char *));
 					break;
 				case '%':
-					_putchar('%');
-					count++;
+					count += _putchar('%');
 					break;
 				default:
-					_putchar('%');
-					_putchar(format[i]);
-					count += 2;
+					count += _putchar('%');
+					count += _putchar(*format);
 					break;
 			}
 		}
 		else
 		{
-			_putchar(format[i]);
-			count++;
+			count += _putchar(*format);
 		}
+		format++;
 	}
 	va_end(args);
 	return (count);
+}
+
+/**
+ * _puts - used to output a string to the stdout
+ * @str: the string
+ * Return: the number of strings
+ */
+
+int _puts(char *str)
+{
+	int i = 0;
+	while (str[i] != '\0')
+	{
+		_putchar(str[i]);
+		i++;
+	}
+	return (i);
 }

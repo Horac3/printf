@@ -7,6 +7,7 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_rev(char *str);
+int _puts(char *str);
 int _strlen(char *s);
 int binary_printf(const char *format, ...);
 int specifier_printf(const char *format, ...);
