@@ -4,11 +4,11 @@
 #include <unistd.h>
 
 /**
- * _printf - Produces output according to a format.
+ * specifier_printf- Produces output according to a format.
  * @format: A string that specifies the format of the output.
  * Return: The number of characters printed.
  */
-int _printf(const char *format, ...)
+int specifier_printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
