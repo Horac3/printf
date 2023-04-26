@@ -26,11 +26,11 @@ int print_binary(unsigned int n)
 }
 
 /**
- * binary_printf - prints a formatted string to the standard output stream
- * @format: the format string to print
- * @...: a variable number of arguments to print
+ * binary_printf - produces output according to a format.
+ * @format: A string containing zero or more directives
  *
- * Return: the number of characters printed
+ * Return: The number of characters printed
+ * (excluding the null byte used to end output to strings)
  */
 
 
@@ -42,9 +42,9 @@ int binary_printf(const char *format, ...)
 
 	va_list args;
 
-	va_start(args, format);
-
 	p = format;
+
+	va_start(args, format);
 
 	for (; *p != '\0'; p++)
 	{
